@@ -1,0 +1,49 @@
+{% block content %}
+<h1>Image Prediction Results</h1>
+<h2>Uploaded Image:</h2>
+<div style="text-align: center;">
+    <h1>This is the Image of <span style="color: maroon;
+                                    text-transform: uppercase;
+                                    text-decoration: underline;
+                                    text-underline-offset: 10px;">{{ predictedLabel }}</span></h1>
+    <img style="width: 800px;" src="{{ file_path }}" alt="Uploaded Image">
+    <br>
+    <h1 style="font-size: 50px;
+    text-decoration: underline;
+                text-underline-offset: 10px;">Top 5 Similar Results</h1>
+</div>
+<div>
+
+    <ol style="margin-left: 15px;">
+        {% for result, perce in top_five.items %}
+
+        {% if forloop.first %}
+        <h1 style="color: red;
+        font-size: 40px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 10px;">
+            <li><span>{{ result }}</span>.
+            </li>
+        </h1>
+        {% else %}
+        {% if not your_condition_here %}
+        <h1 style="color: green;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 10px;">
+            <li><span>{{ result }}</span>.
+            </li>
+        </h1>
+        {% endif %}
+        {% endif %}
+
+        {% endfor %}
+    </ol>
+
+
+
+
+</div>
+
+{% endblock %}
